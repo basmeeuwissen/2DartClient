@@ -12,6 +12,8 @@
     addScript("/assets/libs/angular-touch.min.js");
     addScript("/assets/libs/ui-bootstrap.js");
     
+    addScript("/assets/libs/base64.js");
+    
     function addScript(url)
     {
         document.write('<script type="text/javascript" src="' + url + '?seed=' + Math.random() + '"></script>');
