@@ -16,6 +16,6 @@
     
     function addScript(url)
     {
-        document.write('<script type="text/javascript" src="' + url + '?seed=' + Math.random() + '"></script>');
+        document.write('<script type="text/javascript" src="/2DartClient' + url + '?seed=' + Math.random() + '"></script>');
     }
 })();

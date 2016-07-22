@@ -4,44 +4,33 @@
  * and open the template in the editor.
  */
 
-(function(angular)
+(function (angular)
 {
     'use strict';
-    
+
     angular.module('twodart',
     [
         'ngRoute',
         'ngAnimate',
         'ngTouch',
         
-        'twodart.shared.common',
-        'twodart.shared.user',
-        
-        'twodart.components.application',
-        'twodart.components.game',
-        'twodart.components.home',
-        'twodart.components.lobby',
-        'twodart.components.login',
-        'twodart.components.register',
-        'twodart.components.user'
-    ])
-    
-    .config(['$locationProvider', function($locationProvider)
-    {
-        //$locationProvider.html5Mode(true);
-        $locationProvider.baseHref = '/';
-    }])
+        'twodart.shared.dynamic',
+        'twodart.shared.componentA',
+        'twodart.shared.componentB'
+    ]);
 
-    .config(function($httpProvider)
-    {
-	$httpProvider.interceptors.push('requestService');
-	
-	if (!$httpProvider.defaults.headers.get)
-	{
-            $httpProvider.defaults.headers.get = {};
-	}
-        
-        $httpProvider.defaults.headers.get['If-Modified-Since'] = 'Mon, 26 Jul 1997 05:00:00 GMT';
-    });
-    
 })(angular);
+
+if (!String.prototype.format)
+{
+    String.prototype.format = function ()
+    {
+        var args = arguments;
+        return this.replace(/{(\d+)}/g, function (match, number)
+        {
+            return typeof args[number] !== 'undefined'
+                ? args[number]
+                : match;
+        });
+    };
+}
