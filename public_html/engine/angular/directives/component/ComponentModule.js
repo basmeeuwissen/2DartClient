@@ -3,7 +3,7 @@
 {
     'use strict';
     
-    angular.module('twodart.shared.dynamic',
+    angular.module('engine.directive.component',
     [
         
     ]);

@@ -4,10 +4,10 @@
     'use strict';
     
     angular
-        .module('twodart.shared.dynamic')
-        .controller('DynamicController', DynamicController);
+        .module('engine.directive.component')
+        .controller('ComponentController', ComponentController);
 
-    function DynamicController($scope)
+    function ComponentController($scope)
     {
         var self = this;
         
