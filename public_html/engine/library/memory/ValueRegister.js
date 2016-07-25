@@ -3,7 +3,7 @@ namespace('engine.memory');
 
 (function()
 {
-    engine.ValueRegister = function()
+    engine.memory.ValueRegister = function()
     {
         var self = this;
         
@@ -47,7 +47,7 @@ namespace('engine.memory');
             {
                 for (var index = 0; index < keys.length; index++)
                 {
-                    key = keys[index];
+                    key = keys[index].toLowerCase();
                     
                     if (result[key] === undefined)
                     {
@@ -70,10 +70,10 @@ namespace('engine.memory');
         {
             if (keys instanceof Array)
             {
-                return keys[keys.length - 1];
+                return keys[keys.length - 1].toLowerCase();
             }
             
-            return keys;
+            return keys.toLowerCase();
         };
     };
 })();

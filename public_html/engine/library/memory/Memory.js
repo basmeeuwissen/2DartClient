@@ -3,9 +3,9 @@ namespace('engine.memory');
 
 (function()
 {
-    var ValueRegister = engine.memory;
+    var ValueRegister = engine.memory.ValueRegister;
     
-    engine.Memory = function()
+    engine.memory.Memory = function()
     {
         var self = this;
         
