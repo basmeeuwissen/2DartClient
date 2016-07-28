@@ -11,9 +11,9 @@
     {
         return {
             restrict: 'E',
-            replace: true,
+            //replace: true,
             transclude: false,
-            templateUrl: '/2DartClient/engine/directives/component/ComponentView.html',
+            templateUrl: '/2DartClient/engine/angular/directives/component/ComponentView.html',
             controller: 'ComponentController',
             controllerAs: 'controller',
             link: function(scope, element, attribute)

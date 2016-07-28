@@ -6,10 +6,6 @@
 
 (function()
 {
-    addScript("/app/shared/dynamic/DynamicModule.js");
-    addScript("/app/shared/dynamic/DynamicController.js");
-    addScript("/app/shared/dynamic/DynamicDirective.js");
-    
     addScript("/app/shared/component-a/ComponentAModule.js");
     addScript("/app/shared/component-a/ComponentAController.js");
     addScript("/app/shared/component-a/ComponentADirective.js");

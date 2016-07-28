@@ -25,6 +25,16 @@
     addScript("/engine/library/Context.js");
     addScript("/engine/library/Engine.js");
     
+    // Angular
+    addScript("/engine/angular/EngineModule.js");
+    addScript("/engine/angular/providers/EngineProvider.js");
+    addScript("/engine/angular/services/EngineService.js");
+    
+    // Angular directives
+    addScript("/engine/angular/directives/component/ComponentModule.js");
+    addScript("/engine/angular/directives/component/ComponentController.js");
+    addScript("/engine/angular/directives/component/ComponentDirective.js");
+    
     function addScript(url)
     {
         document.write('<script type="text/javascript" src="/2DartClient' + url + '?seed=' + Math.random() + '"></script>');

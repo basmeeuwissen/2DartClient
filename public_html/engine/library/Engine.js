@@ -66,7 +66,7 @@ namespace('engine');
                 throw new NotRunnableException(resourceName, typeName, valueName);
             }
             
-            value();
+            return value();
         };
         
         var validate = function()

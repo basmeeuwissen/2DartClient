@@ -1,8 +1,3 @@
-/* 
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 
 (function (angular)
 {
@@ -14,23 +9,33 @@
         'ngAnimate',
         'ngTouch',
         
-        'twodart.shared.dynamic',
+        'engine',
+        
         'twodart.shared.componentA',
         'twodart.shared.componentB'
-    ]);
+    ])
+    
+    .config(function(engineProvider)
+    {
+        var resourceRegister = new engine.register.ResourceRegister('application'),
+            memory = new engine.memory.Memory(),
+            context = new engine.Context(),
+            theEngine = new engine.Engine();
+        
+        theEngine.setContext(context);
+        theEngine.setMemory(memory);
+        theEngine.setRegister(resourceRegister);
+        
+        var typeRegister = resourceRegister.addResource('Test'),
+            valueRegister = typeRegister.addType('Component'),
+            candidateRegister = valueRegister.addValue('Overview');
+
+        candidateRegister.addCandidate({}, 'component-a');
+        candidateRegister.addCandidate({'client': 'school'}, 'component-b');
+        
+        context.setCircumstance('Client', 'School');
+        
+        engineProvider.setEngine(theEngine);
+    });
 
 })(angular);
-
-if (!String.prototype.format)
-{
-    String.prototype.format = function ()
-    {
-        var args = arguments;
-        return this.replace(/{(\d+)}/g, function (match, number)
-        {
-            return typeof args[number] !== 'undefined'
-                ? args[number]
-                : match;
-        });
-    };
-}
