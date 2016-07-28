@@ -5,6 +5,9 @@ namespace('engine.memory');
 {
     var ValueRegister = engine.memory.ValueRegister;
     
+    var MemoryException = engine.exceptions.MemoryException,
+        MemoryValueNotFoundException = engine.exceptions.MemoryValueNotFoundException;
+    
     engine.memory.Memory = function()
     {
         var self = this;
@@ -25,7 +28,7 @@ namespace('engine.memory');
         {
             if (scopes.length === 1)
             {
-                // throw exception
+                throw new MemoryException('There is no scope to close');
             }
             
             scopes.pop();
@@ -52,7 +55,7 @@ namespace('engine.memory');
             
             if (value === undefined && require === true)
             {
-                // throw exception
+                throw new MemoryValueNotFoundException(keys);
             }
             
             return value;

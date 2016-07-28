@@ -5,6 +5,8 @@ namespace('engine.register');
 {
     var ValueRegister = engine.register.ValueRegister;
     
+    var TypeNotFoundException = engine.register.TypeNotFoundException;
+    
     engine.register.TypeRegister = function(name)
     {
         var self = this;
@@ -39,7 +41,7 @@ namespace('engine.register');
             
             if (types[name] === undefined && require === true)
             {
-                // throw execption
+                throw new TypeNotFoundException(name);
             }
             
             return types[name];

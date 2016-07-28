@@ -5,6 +5,8 @@ namespace('engine.register');
 {
     var TypeRegister = engine.register.TypeRegister;
     
+    var ResourceNotFoundException = engine.register.ResourceNotFoundException;
+    
     engine.register.ResourceRegister = function(name)
     {
         var self = this;
@@ -39,7 +41,7 @@ namespace('engine.register');
             
             if (resources[name] === undefined && require === true)
             {
-                // throw execption
+                throw new ResourceNotFoundException(name);
             }
             
             return resources[name];

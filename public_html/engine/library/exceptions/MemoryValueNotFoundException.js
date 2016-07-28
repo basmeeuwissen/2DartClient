@@ -1,7 +1,28 @@
-/* 
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 
+namespace('engine.exceptions');
 
+(function()
+{
+    function CustomException(key)
+    {
+        var message = 'No memory value found for: {0}';
+        
+        if (key instanceof Array)
+        {
+            message = message.format(key.join());
+        }
+        else
+        {
+            message = message.format(key);
+        }
+        
+        this.name = "MemoryValueNotFoundException";
+        this.message = message;
+        this.stack = (new Error()).stack;
+    }
+    
+    CustomException.prototype = Object.create(Error.prototype);
+    CustomException.prototype.constructor = CustomException;
+    
+    engine.exceptions.MemoryValueNotFoundException = CustomException;
+})();

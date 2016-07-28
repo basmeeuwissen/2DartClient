@@ -1,7 +1,19 @@
-/* 
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 
+namespace('engine.exceptions');
 
+(function()
+{
+    function CustomException(circumstances)
+    {
+        var message = 'Multiple candidates found for circumstances: {0}'.format(jQuery.param(circumstances));
+        
+        this.name = "MultipleCandidatesFoundException";
+        this.message = message;
+        this.stack = (new Error()).stack;
+    }
+    
+    CustomException.prototype = Object.create(Error.prototype);
+    CustomException.prototype.constructor = CustomException;
+    
+    engine.exceptions.MultipleCandidatesFoundException = CustomException;
+})();

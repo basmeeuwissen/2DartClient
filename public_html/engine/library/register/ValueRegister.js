@@ -5,6 +5,8 @@ namespace('engine.register');
 {
     var CandidateRegister = engine.register.CandidateRegister;
     
+    var ValueNotFoundException = engine.register.ValueNotFoundException;
+    
     engine.register.CandidateRegister = function(name)
     {
         var self = this;
@@ -39,7 +41,7 @@ namespace('engine.register');
             
             if (values[name] === undefined && require === true)
             {
-                // throw execption
+                throw new ValueNotFoundException(name);
             }
             
             return values[name];
