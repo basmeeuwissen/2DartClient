@@ -3,12 +3,9 @@ namespace('engine');
 
 (function()
 {
-    var Context = engine.Context,
-        Register = engine.register.Register,
-        Memory = engine.memory.Memory;
-    
     var MissingContextException = engine.exceptions.MissingContextException,
-        MissingRegisterException = engine.exceptions.MissingRegisterException;
+        MissingRegisterException = engine.exceptions.MissingRegisterException,
+        NotRunnableException = engine.exceptions.NotRunnableException;
     
     engine.Engine = function()
     {
@@ -17,13 +14,6 @@ namespace('engine');
         var context = null,
             register = null,
             memory = null;
-        
-        var construct = function()
-        {
-            context = new Context();
-            register = new Register();
-            memory = new Memory();
-        };
         
         self.getContext = function()
         {
@@ -63,7 +53,20 @@ namespace('engine');
                     .getResource(resourceName, true)
                     .getType(typeName, true)
                     .getValue(valueName, true)
-                    .findCandidate(context.getCircumstances(), true);
+                    .findCandidate(context.getCircumstances(), true)
+                    .value;
+        };
+        
+        self.run = function(resourceName, typeName, valueName)
+        {
+            var value = self.find(resourceName, typeName, valueName);
+            
+            if (typeof value !== 'function')
+            {
+                throw new NotRunnableException(resourceName, typeName, valueName);
+            }
+            
+            value();
         };
         
         var validate = function()
@@ -78,7 +81,5 @@ namespace('engine');
                 throw new MissingRegisterException();
             }
         };
-        
-        construct();
     };
 })();

@@ -5,7 +5,7 @@ namespace('engine.register');
 {
     var ValueRegister = engine.register.ValueRegister;
     
-    var TypeNotFoundException = engine.register.TypeNotFoundException;
+    var TypeNotFoundException = engine.exceptions.TypeNotFoundException;
     
     engine.register.TypeRegister = function(name)
     {

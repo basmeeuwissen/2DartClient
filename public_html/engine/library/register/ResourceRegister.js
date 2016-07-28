@@ -5,7 +5,7 @@ namespace('engine.register');
 {
     var TypeRegister = engine.register.TypeRegister;
     
-    var ResourceNotFoundException = engine.register.ResourceNotFoundException;
+    var ResourceNotFoundException = engine.exceptions.ResourceNotFoundException;
     
     engine.register.ResourceRegister = function(name)
     {

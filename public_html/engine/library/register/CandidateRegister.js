@@ -41,7 +41,7 @@ namespace('engine.register');
                 }
             }
             
-            matches.sort(compareCandidates);
+            matches = matches.sort(compareCandidates);
             
             candidate = pickCandidate(matches, circumstances);
             
@@ -82,19 +82,14 @@ namespace('engine.register');
         {
             var a = candidateA.score,
                 b = candidateB.score;
-        
-            if (a === 0)
-            {
-                return 0;
-            }
             
-            return a < b;
+            return b - a;
         };
         
         var pickCandidate = function(matches, circumstances)
         {
             var matchCount = matches.length;
-        
+            
             if (matchCount === 0)
             {
                 return null;

@@ -5,9 +5,9 @@ namespace('engine.register');
 {
     var CandidateRegister = engine.register.CandidateRegister;
     
-    var ValueNotFoundException = engine.register.ValueNotFoundException;
+    var ValueNotFoundException = engine.exceptions.ValueNotFoundException;
     
-    engine.register.CandidateRegister = function(name)
+    engine.register.ValueRegister = function(name)
     {
         var self = this;
         

@@ -6,6 +6,8 @@
 
 (function()
 {
+    addScript("/assets/libs/jquery.min.js");
+    
     addScript("/assets/libs/angular.min.js");
     addScript("/assets/libs/angular-animate.min.js");
     addScript("/assets/libs/angular-route.min.js");
@@ -13,6 +15,8 @@
     addScript("/assets/libs/ui-bootstrap.js");
     
     addScript("/assets/libs/base64.js");
+    addScript("/assets/libs/namespace.min.js");
+    addScript("/assets/libs/formatter.min.js");
     
     function addScript(url)
     {

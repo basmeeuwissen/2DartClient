@@ -1,25 +1,130 @@
 <!DOCTYPE html>
 
-<html ng-app="twodart">
-    
+<html>
+<!--<html ng-app="twodart">-->
+
     <head>
-        
+
         <title>2Dart</title>
-        
+
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        
-        <link rel="stylesheet" type="text/css" href="/2DartClient/assets/style.css" />
-        
+
+        <!--<link rel="stylesheet" type="text/css" href="/2DartClient/assets/style.css" />-->
+
         <script type="text/javascript" src="/2DartClient/assets/libs.js"></script>
-        <script type="text/javascript" src="/2DartClient/app/app.js"></script>
+        <script type="text/javascript" src="/2DartClient/engine/engine.js"></script>
+        <!--<script type="text/javascript" src="/2DartClient/app/app.js"></script>-->
+
+        <script type="text/javascript">
+
+            var register = new engine.register.ResourceRegister('application'),
+                memory = new engine.memory.Memory(),
+                context = new engine.Context(),
+                engine = new engine.Engine();
         
+            engine.setContext(context);
+            engine.setMemory(memory);
+            engine.setRegister(register);
+            
+            setupRegister(register);
+            setupMemory(memory);
+            setupContext(context);
+            
+            //testRegister(register);
+            //testMemory(memory);
+            //testContext(context);
+            testEngine(engine);
+            
+            function setupRegister(resourceRegister)
+            {
+                var typeRegister = resourceRegister.addResource('Test');
+                var valueRegister = typeRegister.addType('Directive');
+                var candidateRegister = valueRegister.addValue('Overview');
+                
+                candidateRegister.addCandidate({}, 'DefaultOverview');
+                candidateRegister.addCandidate({'label': 'examenwerk'}, 'ExamenwerkOverview');
+                candidateRegister.addCandidate({'label': 'examenwerk', 'client': 'school'}, 'ExamenwerkSchoolOverview');
+                //candidateRegister.addCandidate({'label': 'examenwerk', 'client': 'school'}, 'ExamenwerkDuplicateOverview');
+            }
+            
+            function setupMemory(memory)
+            {
+                memory.set('user', 'Peter');
+                
+            }
+            
+            function setupContext(context)
+            {
+                context.setCircumstance('Label', 'Examenwerk');
+                context.setCircumstance('Client', 'Student');
+            }
+            
+            function testRegister(resourceRegister)
+            {
+                var candidateRegister = resourceRegister
+                    .getResource('Test', true)
+                    .getType('Directive', true)
+                    .getValue('Overview', true);
+            
+                var candidate = candidateRegister.findCandidate({'label': 'examenwerk', 'client': 'school'}, true);
+                
+                console.log(candidate.value);
+            }
+            
+            function testMemory(memory)
+            {
+                memory.openScope();
+                
+                memory.set(['request', 'data', 'id1'], 12);
+                memory.set(['request', 'data', 'id2'], 15);
+                
+                memory.openScope();
+                
+                memory.set(['request', 'data', 'id1'], 13);
+                memory.set(['request', 'data', 'id3'], 14);
+                
+                console.log(memory.get(['request', 'data', 'id1'])); // 13
+                console.log(memory.get(['request', 'data', 'id2'])); // 15
+                console.log(memory.get(['request', 'data', 'id3'])); // 14
+                console.log('--------------------------------------');
+                
+                memory.closeScope();
+                
+                console.log(memory.get(['request', 'data', 'id1'])); // 12
+                console.log(memory.get(['request', 'data', 'id2'])); // 15
+                console.log(memory.get(['request', 'data', 'id3'])); // undefined
+                console.log('--------------------------------------');
+                
+                memory.closeScope();
+                
+                console.log(memory.get(['request', 'data', 'id1'])); // undefined
+                console.log(memory.get(['request', 'data', 'id2'])); // undefined
+                console.log(memory.get(['request', 'data', 'id3'])); // undefined
+            }
+            
+            function testContext(context)
+            {
+                console.log(context.getCircumstance('label')); // examenwerk
+                console.log(context.hasCircumstance('label')); // true
+                console.log(context.hasCircumstance('bella')); // false
+            }
+            
+            function testEngine(engine)
+            {
+                var value = engine.find('test', 'directive', 'overview');
+                
+                console.log(value);
+            }
+
+        </script>
+
     </head>
-    
+
     <body>
-        
-        <dependency name="'component-b'"></dependency>
-        
+
+        <!--<dependency name="'component-b'"></dependency>-->
+
     </body>
-    
+
 </html>

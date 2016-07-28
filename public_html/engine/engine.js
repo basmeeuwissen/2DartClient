@@ -4,8 +4,9 @@
     // Exceptions
     addScript("/engine/library/exceptions/MemoryException.js");
     addScript("/engine/library/exceptions/MemoryValueNotFoundException.js");
-    addScript("/engine/library/exceptions/MultipleCandidatesFoundException.js");
+    addScript("/engine/library/exceptions/MultipleCandidatesException.js");
     addScript("/engine/library/exceptions/NoCandidateFoundException.js");
+    addScript("/engine/library/exceptions/NotRunnableException.js");
     addScript("/engine/library/exceptions/ResourceNotFoundException.js");
     addScript("/engine/library/exceptions/TypeNotFoundException.js");
     addScript("/engine/library/exceptions/ValueNotFoundException.js");
