@@ -31,9 +31,9 @@
     addScript("/engine/angular/services/EngineService.js");
     
     // Angular directives
-    addScript("/engine/angular/directives/component/ComponentModule.js");
-    addScript("/engine/angular/directives/component/ComponentController.js");
-    addScript("/engine/angular/directives/component/ComponentDirective.js");
+    addScript("/engine/angular/directives/directive/DirectiveModule.js");
+    addScript("/engine/angular/directives/directive/DirectiveController.js");
+    addScript("/engine/angular/directives/directive/DirectiveDirective.js");
     
     function addScript(url)
     {

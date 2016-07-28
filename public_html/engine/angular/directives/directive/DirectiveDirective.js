@@ -4,23 +4,23 @@
     'use strict';
     
     angular
-        .module('engine.directive.component')
-        .directive('component', ComponentDirective);
+        .module('engine.directives.directive')
+        .directive('directive', DirectiveDirective);
 
-    function ComponentDirective($compile, $engine)
+    function DirectiveDirective($compile, $engine)
     {
         return {
             restrict: 'E',
             //replace: true,
             transclude: false,
-            templateUrl: '/2DartClient/engine/angular/directives/component/ComponentView.html',
-            controller: 'ComponentController',
+            templateUrl: '/2DartClient/engine/angular/directives/directive/DirectiveView.html',
+            controller: 'DirectiveController',
             controllerAs: 'controller',
             link: function(scope, element, attribute)
             {
-                var componentName = $engine.find(scope.resource, 'Component', scope.name);
+                var directiveName = $engine.find(scope.resource, 'Directive', scope.name);
                 
-                var child = angular.element('<{0}></{0}>'.format(componentName));
+                var child = angular.element('<{0}></{0}>'.format(directiveName));
                 
                 element.append(child);
                 

@@ -27,13 +27,13 @@
         theEngine.setRegister(resourceRegister);
         
         var typeRegister = resourceRegister.addResource('Test'),
-            valueRegister = typeRegister.addType('Component'),
+            valueRegister = typeRegister.addType('Directive'),
             candidateRegister = valueRegister.addValue('Overview');
 
         candidateRegister.addCandidate({}, 'component-a');
         candidateRegister.addCandidate({'client': 'school'}, 'component-b');
         
-        context.setCircumstance('Client', 'School');
+        //context.setCircumstance('Client', 'School');
         
         engineProvider.setEngine(theEngine);
     });

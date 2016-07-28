@@ -3,6 +3,6 @@
 {
     angular.module('engine',
     [
-        'engine.directive.component'
+        'engine.directives.directive'
     ]);
 })();

@@ -3,7 +3,7 @@
 {
     'use strict';
     
-    angular.module('engine.directive.component',
+    angular.module('engine.directives.directive',
     [
         
     ]);
