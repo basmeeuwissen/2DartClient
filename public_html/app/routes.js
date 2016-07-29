@@ -8,7 +8,7 @@
 {
     'use strict';
     
-    angular.module('twodart').config(['$routeProvider', function($routeProvider)
+    angular.module('application').config(['$routeProvider', function($routeProvider)
     {
         
     }]);

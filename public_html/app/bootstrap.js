@@ -3,36 +3,16 @@
 {
     'use strict';
 
-    angular.module('twodart',
+    angular.module('application',
     [
-        'ngRoute',
-        'ngAnimate',
-        'ngTouch',
-        
         'engine',
         
-        'twodart.shared.componentA',
-        'twodart.shared.componentB'
+        'application.practice'
     ])
-    
-    .config(function(memoryProvider)
-    {
-        
-    })
     
     .config(function(contextProvider)
     {
-        contextProvider.setCircumstance('Client', 'School');
-    })
-    
-    .config(function(registerProvider)
-    {
-        registerProvider
-            .addResource('Test')
-            .addType('Directive')
-            .addValue('Overview')
-            .addCandidate({}, 'component-a')
-            .addCandidate({'client': 'school'}, 'component-b');
+        contextProvider.setCircumstance('Orientation', 'Development');
     })
     
     .config(function(engineProvider, memoryProvider, contextProvider, registerProvider)

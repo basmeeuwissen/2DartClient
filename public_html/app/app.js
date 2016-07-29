@@ -1,21 +1,21 @@
-/* 
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 
 (function()
 {
-    addScript("/app/shared/component-a/ComponentAModule.js");
-    addScript("/app/shared/component-a/ComponentAController.js");
-    addScript("/app/shared/component-a/ComponentADirective.js");
+    addScript("/app/shared/practice/PracticeModule.js");
+    addScript("/app/shared/practice/directives/DirectivesModule.js");
+    addScript("/app/shared/practice/directives/details/DetailsModule.js");
     
-    addScript("/app/shared/component-b/ComponentBModule.js");
-    addScript("/app/shared/component-b/ComponentBController.js");
-    addScript("/app/shared/component-b/ComponentBDirective.js");
+    addScript("/app/shared/practice/directives/details/development/DetailsModule.js");
+    addScript("/app/shared/practice/directives/details/development/DetailsController.js");
+    addScript("/app/shared/practice/directives/details/development/DetailsDirective.js");
+    
+    addScript("/app/shared/practice/directives/details/qualifying/DetailsModule.js");
+    addScript("/app/shared/practice/directives/details/qualifying/DetailsController.js");
+    addScript("/app/shared/practice/directives/details/qualifying/DetailsDirective.js");
+    
     
     addScript("/app/bootstrap.js");
-    addScript("/app/routes.js");
+    //addScript("/app/routes.js");
     
     function addScript(url)
     {
