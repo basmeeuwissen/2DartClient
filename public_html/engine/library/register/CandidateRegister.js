@@ -18,6 +18,8 @@ namespace('engine.register');
                 circumstances: circumstances,
                 value: value
             });
+            
+            return self;
         };
         
         self.findCandidate = function(circumstances, require)

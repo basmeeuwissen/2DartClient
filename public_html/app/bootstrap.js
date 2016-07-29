@@ -27,12 +27,12 @@
     
     .config(function(registerProvider)
     {
-        var typeRegister = registerProvider.addResource('Test'),
-            valueRegister = typeRegister.addType('Directive'),
-            candidateRegister = valueRegister.addValue('Overview');
-
-        candidateRegister.addCandidate({}, 'component-a');
-        candidateRegister.addCandidate({'client': 'school'}, 'component-b');
+        registerProvider
+            .addResource('Test')
+            .addType('Directive')
+            .addValue('Overview')
+            .addCandidate({}, 'component-a')
+            .addCandidate({'client': 'school'}, 'component-b');
     })
     
     .config(function(engineProvider, memoryProvider, contextProvider, registerProvider)

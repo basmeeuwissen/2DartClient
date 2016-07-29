@@ -21,9 +21,9 @@
             return theRegister;
         };
         
-        self.addResource = function(name)
+        self.addResource = function(resourceName)
         {
-            return theRegister.addResource(name);
+            return theRegister.addResource(resourceName);
         };
         
         self.$get = [function()
