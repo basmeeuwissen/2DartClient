@@ -5,7 +5,8 @@
     
     angular.module('application.practice',
     [
-        'application.practice.directives.details'
+        'application.practice.directives',
+        'application.practice.validations'
     ]);
 
 })(angular);

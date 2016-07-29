@@ -3,7 +3,12 @@
 {
     'use strict';
     
-    angular.module('application.practice').config(function(registerProvider)
+    angular.module('application.practice.validations',
+    [
+        
+    ])
+    
+    .config(function(registerProvider)
     {
         registerProvider
             .addResource('Practice')
