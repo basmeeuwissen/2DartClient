@@ -5,7 +5,7 @@
         .module('engine')
         .service('$engine', EngineService);
 
-    function EngineService(engine)
+    function EngineService(engine, $location)
     {
         var self = this;
         
@@ -17,6 +17,13 @@
         self.run = function(resourceName, typeName, valueName)
         {
             return engine.run(resourceName, typeName, valueName);
+        };
+        
+        self.route = function(resourceName, typeName, valueName)
+        {
+            var path = engine.find(resourceName, typeName, valueName);
+            
+            $location.path(path);
         };
         
         self.getMemoryValue = function(keys, require)
