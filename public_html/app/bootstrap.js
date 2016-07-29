@@ -12,6 +12,7 @@
     
     .config(function(contextProvider)
     {
+        contextProvider.setCircumstance('Client', 'Student');
         contextProvider.setCircumstance('Orientation', 'Development');
     })
     

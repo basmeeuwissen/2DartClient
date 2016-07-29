@@ -7,8 +7,12 @@
         .module('application.practice.directives.details.development')
         .controller('PracticeDetailsDevelopmentController', Controller);
 
-    function Controller($scope)
+    var DetailsController = application.practice.directives.details.DetailsController;
+
+    function Controller($scope, $engine)
     {
+        DetailsController.call(this, $scope, $engine);
+        
         var self = this;
         
         var construct = function()
