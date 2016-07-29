@@ -9,16 +9,33 @@
     {
         var self = this;
         
-        var engine = null;
+        var theEngine = null;
         
-        self.setEngine = function(theEngine)
+        var construct = function()
         {
-            engine = theEngine;
+            theEngine = new engine.Engine();
+        };
+        
+        self.setMemory = function(theMemory)
+        {
+            theEngine.setMemory(theMemory);
+        };
+        
+        self.setContext = function(theContext)
+        {
+            theEngine.setContext(theContext);
+        };
+        
+        self.setRegister = function(theRegister)
+        {
+            theEngine.setRegister(theRegister);
         };
         
         self.$get = [function()
         {
-            return engine;
+            return theEngine;
         }];
+    
+        construct();
     }
 })();

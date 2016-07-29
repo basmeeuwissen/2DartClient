@@ -15,27 +15,31 @@
         'twodart.shared.componentB'
     ])
     
-    .config(function(engineProvider)
+    .config(function(memoryProvider)
     {
-        var resourceRegister = new engine.register.ResourceRegister('application'),
-            memory = new engine.memory.Memory(),
-            context = new engine.Context(),
-            theEngine = new engine.Engine();
         
-        theEngine.setContext(context);
-        theEngine.setMemory(memory);
-        theEngine.setRegister(resourceRegister);
-        
-        var typeRegister = resourceRegister.addResource('Test'),
+    })
+    
+    .config(function(contextProvider)
+    {
+        contextProvider.setCircumstance('Client', 'School');
+    })
+    
+    .config(function(registerProvider)
+    {
+        var typeRegister = registerProvider.addResource('Test'),
             valueRegister = typeRegister.addType('Directive'),
             candidateRegister = valueRegister.addValue('Overview');
 
         candidateRegister.addCandidate({}, 'component-a');
         candidateRegister.addCandidate({'client': 'school'}, 'component-b');
-        
-        //context.setCircumstance('Client', 'School');
-        
-        engineProvider.setEngine(theEngine);
+    })
+    
+    .config(function(engineProvider, memoryProvider, contextProvider, registerProvider)
+    {
+        engineProvider.setMemory(memoryProvider.getMemory());
+        engineProvider.setContext(contextProvider.getContext());
+        engineProvider.setRegister(registerProvider.getRegister());
     });
 
 })(angular);

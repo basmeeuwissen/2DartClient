@@ -27,7 +27,14 @@
     
     // Angular
     addScript("/engine/angular/EngineModule.js");
+    
+    // Angular providers
+    addScript("/engine/angular/providers/MemoryProvider.js");
+    addScript("/engine/angular/providers/ContextProvider.js");
+    addScript("/engine/angular/providers/RegisterProvider.js");
     addScript("/engine/angular/providers/EngineProvider.js");
+    
+    // Angular services
     addScript("/engine/angular/services/EngineService.js");
     
     // Angular directives
